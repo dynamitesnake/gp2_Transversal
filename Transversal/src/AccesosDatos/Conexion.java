@@ -17,7 +17,7 @@ public class Conexion {
     private Conexion() {
     }
     
-    public static Connection getConexion(){
+    public Connection getConexion(){
         
         if(connection==null){
             try {
