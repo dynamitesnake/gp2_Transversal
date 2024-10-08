@@ -1,22 +1,18 @@
 
 package AccesosDatos;
 
-import java.sql.Connection;
 import AccesosDatos.Conexion;
 import Entidades.Alumno;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 public class alumnoData {
     private Connection conn =null;
+    
     public alumnoData (Conexion miConexion) {
-            this.conn = miConexion.getConexion();
- }
+        this.conn = miConexion.getConexion();
+    }
     public void guardarAlumno(Alumno alu) {
         String sql = "INSERT * INTO alumno (nombre, apellido, edad, activo) VALUES (?, ?, ?, ?)";
         try {
@@ -32,6 +28,7 @@ public class alumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno");
         }
     }
 
@@ -57,4 +54,5 @@ public class alumnoData {
         }
         return alumnos;
     }
-    }
+    
+}

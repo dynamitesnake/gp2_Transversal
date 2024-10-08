@@ -84,6 +84,4 @@ public class Alumno {
         return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + '}';
     }
     
-    
-    
 }
