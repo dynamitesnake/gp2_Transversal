@@ -27,15 +27,16 @@ public class alumnoData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if (rs.next()) {
-                alumno.setIdAlumno(rs.getInt(0));
+                alumno.setIdAlumno(rs.getInt(1));
             }
             ps.close();
         } catch (SQLException ex) {
+            System.out.println("pruebas");
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
     }
     
-    public Alumno buscarAlumno(int idAlumno) {
+    public Alumno buscarAlumnoPorId(int idAlumno) {
         System.out.println("\nBuscar alumno por id");
         Alumno alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
@@ -136,7 +137,7 @@ public class alumnoData {
         }
     }
     
-    public void eliminarAlumno(int idAlumno) {
+    public void eliminarAlumnoPorId(int idAlumno) {
         System.out.println("\nEliminar alumno");
         String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno = ? ";
         try {
