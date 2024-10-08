@@ -4,22 +4,30 @@ import AccesosDatos.Conexion;
 import AccesosDatos.alumnoData;
 import Entidades.Alumno;
 import java.time.LocalDate;
-
+import java.util.List;
 
 public class Transversal {
 public Conexion miConexion;
-    
-    
+
     public static void main(String[] args) {
-        
-        Alumno alumno = new Alumno (1,"Godoy","Dario", LocalDate.now(), true);
-        conectar(alumno);
+        Alumno alumnoDario = new Alumno(1, "Dario", "Godoy", LocalDate.now(), true);
+        Alumno alumnoFer = new Alumno (2,"Fernando","Hernandez", LocalDate.now(), true);
+        conectar(alumnoDario);
+        conectar(alumnoFer);
     }
+    
     public static void conectar (Alumno alumno){
-        alumnoData aluData = new alumnoData();
-        aluData.guardarAlumno(alumno);
-        aluData.listarAlumnos();
+        alumnoData alumnoData = new alumnoData();
+        alumnoData.guardarAlumno(alumno);
+        
+        List<Alumno> alumnos = alumnoData.listarAlumnos();
+        for (Object alumnosLista : alumnos) {
+            System.out.println(alumnosLista);
+        }
+        
+        
     }
+    
 }
     
 

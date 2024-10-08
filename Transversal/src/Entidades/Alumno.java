@@ -31,7 +31,7 @@ public class Alumno {
         this.estado = estado;
     }
 
-    public int getIdAlumno(int IdAlumno) {
+    public int getIdAlumno() {
         return idAlumno;
     }
 
@@ -81,13 +81,15 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" +
-                "idAlumno=" + idAlumno +
-                ", apellido='" + apellido + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", activo=" + estado +
-                '}';
+        return "Alumno " + getNombre() 
+                + "{" +
+                "\nidAlumno= " + idAlumno +
+                ",\ndni= " + dni +
+                ",\napellido= '" + apellido + '\'' +
+                ",\nnombre= '" + nombre + '\'' +
+                ",\nfechaNacimiento= " + fechaNacimiento +
+                ",\nestado= " + estado +
+                "}\n";
     }
     
 }
