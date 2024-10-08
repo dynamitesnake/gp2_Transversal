@@ -71,7 +71,7 @@ CREATE TABLE `materia` (
 --
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`idAlumno`,`dni`);
-  ADD UNIQUE KEY `dni` (`dni`),
+  ADD UNIQUE KEY `dni` (`dni`);
 
 --
 -- Indices de la tabla `inscripcion`
