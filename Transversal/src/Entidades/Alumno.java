@@ -8,27 +8,27 @@ public class Alumno {
     private int dni;
     private String nombre;
     private String apellido;
-    private LocalDate fechaNac;
-    private boolean activo;
+    private LocalDate fechaNacimiento;
+    private boolean estado;
 
     public Alumno() {
     }
 
-    public Alumno(int dni, String nombre, String apellido, LocalDate fechaNac, boolean activo) {
+    public Alumno(int dni, String nombre, String apellido, LocalDate fechaNacimiento, boolean estado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.fechaNac = fechaNac;
-        this.activo = activo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.estado = estado;
     }
 
-    public Alumno(int idAlumno, int dni, String nombre, String apellido, LocalDate fechaNac, boolean activo) {
+    public Alumno(int idAlumno, int dni, String nombre, String apellido, LocalDate fechaNacimiento, boolean estado) {
         this.idAlumno = idAlumno;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.fechaNac = fechaNac;
-        this.activo = activo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.estado = estado;
     }
 
     public int getIdAlumno(int IdAlumno) {
@@ -47,12 +47,12 @@ public class Alumno {
         return apellido;
     }
 
-    public LocalDate getFechaNac() {
-        return fechaNac;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public boolean isActivo() {
-        return activo;
+        return estado;
     }
 
     public void setIdAlumno(int idAlumno) {
@@ -71,17 +71,23 @@ public class Alumno {
         this.apellido = apellido;
     }
 
-    public void setFechaNac(LocalDate fechaNac) {
-        this.fechaNac = fechaNac;
+    public void setfechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setActivo(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + '}';
+        return "Alumno{" +
+                "idAlumno=" + idAlumno +
+                ", apellido='" + apellido + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", activo=" + estado +
+                '}';
     }
     
 }

@@ -12,16 +12,13 @@ public Conexion miConexion;
     
     public static void main(String[] args) {
         
-        LocalDate fecha = LocalDate.now();
-        Alumno alumno = new Alumno (1,"Dario","Godoy", LocalDate.now(), true);
-        new Transversal().conectar(alumno);
+        Alumno alumno = new Alumno (1,"Godoy","Dario", LocalDate.now(), true);
+        conectar(alumno);
     }
-   void conectar (Alumno alu){
-        miConexion = new Conexion (); 
-        alumnoData aluData = new alumnoData(miConexion);
-        aluData.guardarAlumno(alu);
+    public static void conectar (Alumno alumno){
+        alumnoData aluData = new alumnoData();
+        aluData.guardarAlumno(alumno);
         aluData.listarAlumnos();
-      
     }
 }
     

@@ -10,12 +10,12 @@ public class Conexion {
     private static final String DB="universidadulp";
     private static final String USUARIO="root";
     private static final String PASSWORD="";
-    private Connection connection;
+    private static Connection connection;
 
-    public Conexion() {
+    private Conexion() {
     }
 
-    public Connection getConexion(){
+    public static Connection getConexion(){
         
         if(connection==null){
             try {
