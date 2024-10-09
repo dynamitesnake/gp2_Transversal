@@ -1,8 +1,10 @@
 package Vista;
 
 import AccesosDatos.Conexion;
+import AccesosDatos.MateriaData;
 import AccesosDatos.alumnoData;
 import Entidades.Alumno;
+import Entidades.Materia;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -50,5 +52,12 @@ public Conexion miConexion;
         }
         */
     }
+    Materia matematica = new Materia("matematica", 2, true);
+    Materia programacion = new Materia("programacion",2,true);
+    Materia ingles = new Materia("ingles", 1, true);
+    Materia lengua = new Materia("lengua",1,true);
+    Materia estadistica = new Materia("estadistica",3,true);
+    
+    MateriaData materiadata= new MateriaData();
     
 }
