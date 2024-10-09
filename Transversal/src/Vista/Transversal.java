@@ -13,6 +13,7 @@ public Conexion miConexion;
 
     public static void main(String[] args) {
         conectar();
+        conectaMateria();
     }
     
     public static void conectar (){
@@ -52,6 +53,7 @@ public Conexion miConexion;
         }
         */
     }
+    public static void conectaMateria (){
     Materia matematica = new Materia("matematica", 2, true);
     Materia programacion = new Materia("programacion",2,true);
     Materia ingles = new Materia("ingles", 1, true);
@@ -60,4 +62,11 @@ public Conexion miConexion;
     
     MateriaData materiadata= new MateriaData();
     
+    materiadata.guardarMateria(matematica);
+    materiadata.guardarMateria(programacion);
+    materiadata.guardarMateria(ingles);
+    materiadata.guardarMateria(lengua);
+    materiadata.guardarMateria(estadistica);
+    
 }
+    }
