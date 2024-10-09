@@ -35,38 +35,53 @@ public Conexion miConexion;
         alumnoData.guardarAlumno(alumnoDebo);
         alumnoData.guardarAlumno(alumnoEze);
 
-        //System.out.println(alumnoData.buscarAlumnoPorDni(1));
-        //System.out.println(alumnoData.buscarAlumnoPorId(3));
+        System.out.println(alumnoData.buscarAlumnoPorDni(1));
+        System.out.println(alumnoData.buscarAlumnoPorId(3));
         
-        //Alumno alumnoFerModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
-        //alumnoData.modificarAlumno(alumnoFerModificado);
+        Alumno alumnoFerModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
+        alumnoData.modificarAlumno(alumnoFerModificado);
         
-        //alumnoData.darDeBajaPorId(1);
-        //alumnoData.darDeAltaPorId(1);
+        alumnoData.darDeBajaPorId(1);
+        alumnoData.darDeAltaPorId(1);
         
-        //alumnoData.borrarAlumnoPorId(1);
+        alumnoData.borrarAlumnoPorId(1);
         
-        /*
         List<Alumno> alumnos = alumnoData.listarAlumnos();
         for (Alumno alumno: alumnos) {
             System.out.println(alumno);
         }
-        */
+     
     }
-    public static void conectaMateria (){
-    Materia matematica = new Materia("matematica", 2, true);
-    Materia programacion = new Materia("programacion",2,true);
-    Materia ingles = new Materia("ingles", 1, true);
-    Materia lengua = new Materia("lengua",1,true);
-    Materia estadistica = new Materia("estadistica",3,true);
+        public static void conectaMateria (){
+        Materia matematica = new Materia("matematica", 2, true);
+        Materia programacion = new Materia("programacion",2,true);
+        Materia ingles = new Materia("ingles", 1, true);
+        Materia lengua = new Materia("lengua",1,true);
+        Materia estadistica = new Materia("estadistica",3,true);
+
+        MateriaData materiadata= new MateriaData();
+
+        materiadata.guardarMateria(matematica);
+        materiadata.guardarMateria(programacion);
+        materiadata.guardarMateria(ingles);
+        materiadata.guardarMateria(lengua);
+        materiadata.guardarMateria(estadistica);
     
-    MateriaData materiadata= new MateriaData();
-    
-    materiadata.guardarMateria(matematica);
-    materiadata.guardarMateria(programacion);
-    materiadata.guardarMateria(ingles);
-    materiadata.guardarMateria(lengua);
-    materiadata.guardarMateria(estadistica);
-    
+        System.out.println(materiadata.buscarMateria(1));
+        System.out.println(materiadata.buscarMateria(2));
+        
+        Materia matematicasModificado = new Materia ("mate", 2, true);
+        materiadata.modificarMateria(matematicasModificado);
+
+        materiadata.darBajaPorId(3);
+        materiadata.darAltaPorId(3);
+        
+        materiadata.eliminarMateria(4);
+        
+        
+        List<Materia> materias = materiadata.listarMaterias();    
+          for (Materia materia : materias)  {
+              System.out.println(materia);
+          }
 }
     }

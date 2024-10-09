@@ -103,7 +103,7 @@ public class MateriaData {
         }
     }
     
-     public void eliminarAlumno(int idMateria) {
+     public void eliminarMateria(int idMateria) {
         System.out.println("\nEliminar Materia");
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ? ";
         try {
@@ -120,8 +120,37 @@ public class MateriaData {
         }
     }
     
-   
+      public void darBajaPorId(int idMateria) {
+        System.out.println("\nDar de baja");
+        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ? ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idMateria);
+            int fila=ps.executeUpdate();
+            
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, "Baja de materia.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Materia.");
+        }
+    }
     
-    
-    
+    public void darAltaPorId(int idMateria) {
+        System.out.println("\nDar de alta");
+        String sql = "UPDATE materia SET estado = 1 WHERE idMateria = ? ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idMateria);
+            int fila=ps.executeUpdate();
+            
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, "Alta de materia.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
+        }
+    }
 }
