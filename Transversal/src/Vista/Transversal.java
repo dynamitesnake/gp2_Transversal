@@ -21,11 +21,11 @@ public Conexion miConexion;
         //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
         //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE alumno AUTO_INCREMENT = 0;
         
-        Alumno alumnoEze = new Alumno("Ezequiel", "Herrera", LocalDate.now(), true);
-        Alumno alumnoDebo = new Alumno("Deborah", "Gomez", LocalDate.now(), true);
-        Alumno alumnoAgos = new Alumno("Agostina", "Camargo", LocalDate.now(), true);
-        Alumno alumnoDario = new Alumno( "Dario", "Godoy", LocalDate.now(), true);
-        Alumno alumnoFer = new Alumno ("Fernando","Hernandez", LocalDate.now(), true);
+        Alumno alumnoEze = new Alumno(123, "Ezequiel", "Herrera", LocalDate.now(), true);
+        Alumno alumnoDebo = new Alumno(234, "Deborah", "Gomez", LocalDate.now(), true);
+        Alumno alumnoAgos = new Alumno(345, "Agostina", "Camargo", LocalDate.now(), true);
+        Alumno alumnoDario = new Alumno(456, "Dario", "Godoy", LocalDate.now(), true);
+        Alumno alumnoFer = new Alumno (567, "Fernando","Hernandez", LocalDate.now(), true);
         
         AlumnoData alumnoData = new AlumnoData();
         
@@ -35,7 +35,7 @@ public Conexion miConexion;
         alumnoData.guardarAlumno(alumnoDebo);
         alumnoData.guardarAlumno(alumnoEze);
 
-        System.out.println(alumnoData.buscarAlumnoPorDni(1));
+        System.out.println(alumnoData.buscarAlumnoPorDni(123));
         System.out.println(alumnoData.buscarAlumnoPorId(3));
         
         //PARA MODIFICAR SE TIENE QUE ESPECIFICAR EL 'ID' EN EL CONSTRUCTOR, EL ID DE LA MATERIA A MODIFICAR
@@ -43,8 +43,8 @@ public Conexion miConexion;
         Alumno alumnoModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
         alumnoData.modificarAlumno(alumnoModificado);
         
-        alumnoData.darDeBajaPorId(1);
-        alumnoData.darDeAltaPorId(1);
+        alumnoData.darDeBajaPorId(3);
+        alumnoData.darDeAltaPorId(3);
         
         alumnoData.borrarAlumnoPorId(1);
         
@@ -52,15 +52,18 @@ public Conexion miConexion;
         for (Alumno alumno: alumnos) {
             System.out.println(alumno);
         }
-     
+        
     }
 
     public static void conectaMateria(){
-        Materia matematica = new Materia("matematica", 2, true);
-        Materia programacion = new Materia("programacion",2,true);
-        Materia ingles = new Materia("ingles", 1, true);
-        Materia lengua = new Materia("lengua",1,true);
-        Materia estadistica = new Materia("estadistica",3,true);
+        //SI SE VAN A HACER PRUEBAS EN LA BASE DE DATOS
+        //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
+        //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE materia AUTO_INCREMENT = 0;
+        Materia matematica = new Materia("Matematica", 2, true);
+        Materia programacion = new Materia("Programacion",2,true);
+        Materia ingles = new Materia("Ingles", 1, true);
+        Materia lengua = new Materia("Lengua",1,true);
+        Materia estadistica = new Materia("Estadistica",3,true);
 
         MateriaData materiadata= new MateriaData();
 
@@ -87,6 +90,7 @@ public Conexion miConexion;
         for (Materia materia : materias) {
             System.out.println(materia);
         }
+        
     }
     
 }
