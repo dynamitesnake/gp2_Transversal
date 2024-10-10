@@ -106,23 +106,6 @@ public class MateriaData {
         }
     }
     
-     public void eliminarMateria(int idMateria) {
-        System.out.println("\nEliminar Materia");
-        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ? ";
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, idMateria);
-            int fila=ps.executeUpdate();
-            
-            if (fila == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el materia.");
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla materia");
-        }
-    }
-    
       public void darBajaPorId(int idMateria) {
         System.out.println("\nDar de baja");
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ? ";
@@ -156,4 +139,25 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
         }
     }
+    
+    public void borrarMateriaPorId(int idMateria) {
+        System.out.println("\nBorrar materia");
+        String sql = "DELETE FROM alumno WHERE idMateria = ?";
+    
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idMateria);
+            int fila = ps.executeUpdate();
+        
+            if (fila == 1) {
+               JOptionPane.showMessageDialog(null, "Materia borrada exitosamente");
+            } else {
+               JOptionPane.showMessageDialog(null, "La materia no existe o ya ha sido eliminado");
+            }
+           ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
+        }
+    }
+    
 }

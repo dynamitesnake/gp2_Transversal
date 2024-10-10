@@ -77,7 +77,7 @@ public Conexion miConexion;
         materiadata.darBajaPorId(3);
         materiadata.darAltaPorId(3);
         
-        materiadata.eliminarMateria(4);
+        materiadata.borrarMateriaPorId(4);
         
         
         List<Materia> materias = materiadata.listarMaterias();    
