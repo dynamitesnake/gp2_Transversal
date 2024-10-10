@@ -8,12 +8,12 @@ package Vista;
  *
  * @author deborahhhh
  */
-public class vistaMateria extends javax.swing.JInternalFrame {
+public class VistaMateria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form vistaMateria
      */
-    public vistaMateria() {
+    public VistaMateria() {
         initComponents();
     }
 

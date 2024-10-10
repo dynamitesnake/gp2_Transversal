@@ -7,10 +7,10 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class alumnoData {
+public class AlumnoData {
     private Connection conn =null;
     
-    public alumnoData () {
+    public AlumnoData () {
         this.conn = Conexion.getConexion();
     }
     public void guardarAlumno(Alumno alumno) {

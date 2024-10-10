@@ -4,18 +4,18 @@
  */
 package Vista;
 
-import AccesosDatos.alumnoData;
+import AccesosDatos.AlumnoData;
 import Entidades.Alumno;
 
 /**
  *
  * @author deborahhhh
  */
-public class vistaAlumno extends javax.swing.JInternalFrame {
-    private alumnoData aluData = new alumnoData();
+public class VistaAlumno extends javax.swing.JInternalFrame {
+    private AlumnoData aluData = new AlumnoData();
     private Alumno alumActual = null;
 
-    public vistaAlumno() {
+    public VistaAlumno() {
         initComponents();
     }
 

@@ -2,7 +2,7 @@ package Vista;
 
 import AccesosDatos.Conexion;
 import AccesosDatos.MateriaData;
-import AccesosDatos.alumnoData;
+import AccesosDatos.AlumnoData;
 import Entidades.Alumno;
 import Entidades.Materia;
 import java.time.LocalDate;
@@ -27,7 +27,7 @@ public Conexion miConexion;
         Alumno alumnoDario = new Alumno( "Dario", "Godoy", LocalDate.now(), true);
         Alumno alumnoFer = new Alumno ("Fernando","Hernandez", LocalDate.now(), true);
         
-        alumnoData alumnoData = new alumnoData();
+        AlumnoData alumnoData = new AlumnoData();
         
         alumnoData.guardarAlumno(alumnoFer);
         alumnoData.guardarAlumno(alumnoAgos);
