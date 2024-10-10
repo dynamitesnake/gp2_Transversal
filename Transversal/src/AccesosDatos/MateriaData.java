@@ -142,7 +142,7 @@ public class MateriaData {
     
     public void borrarMateriaPorId(int idMateria) {
         System.out.println("\nBorrar materia");
-        String sql = "DELETE FROM alumno WHERE idMateria = ?";
+        String sql = "DELETE FROM materia WHERE idMateria = ?";
     
         try {
             PreparedStatement ps = conn.prepareStatement(sql);

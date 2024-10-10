@@ -38,8 +38,10 @@ public Conexion miConexion;
         System.out.println(alumnoData.buscarAlumnoPorDni(1));
         System.out.println(alumnoData.buscarAlumnoPorId(3));
         
-        Alumno alumnoFerModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
-        alumnoData.modificarAlumno(alumnoFerModificado);
+        //PARA MODIFICAR SE TIENE QUE ESPECIFICAR EL 'ID' EN EL CONSTRUCTOR, EL ID DE LA MATERIA A MODIFICAR
+        //EN ESTE CASO SERIA EL 'ID' 1 DEL ALUMNO FERNANDO
+        Alumno alumnoModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
+        alumnoData.modificarAlumno(alumnoModificado);
         
         alumnoData.darDeBajaPorId(1);
         alumnoData.darDeAltaPorId(1);
@@ -71,19 +73,21 @@ public Conexion miConexion;
         System.out.println(materiadata.buscarMateria(1));
         System.out.println(materiadata.buscarMateria(2));
         
-        Materia matematicasModificado = new Materia ("mate", 2, true);
+        //PARA MODIFICAR SE TIENE QUE ESPECIFICAR EL 'ID' EN EL CONSTRUCTOR, EL ID DE LA MATERIA A MODIFICAR
+        //EN ESTE CASO SERIA EL 'ID' 1 DE LA MATERIA MATEMATICAS
+        Materia matematicasModificado = new Materia (1, "matematica2.0", 666, true);
         materiadata.modificarMateria(matematicasModificado);
 
         materiadata.darBajaPorId(3);
         materiadata.darAltaPorId(3);
         
-        materiadata.borrarMateriaPorId(4);
-        
+        materiadata.borrarMateriaPorId(1);
         
         List<Materia> materias = materiadata.listarMaterias();    
         for (Materia materia : materias) {
             System.out.println(materia);
         }
     }
+    
 }
 
