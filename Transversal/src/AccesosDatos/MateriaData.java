@@ -35,6 +35,7 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
     }
+    
     public Materia buscarMateria(int idMateria) {
         System.out.println("\nBuscar materia por id");
         Materia materia = null;
@@ -60,6 +61,7 @@ public class MateriaData {
         }
         return materia;
     }
+    
     public List<Materia> listarMaterias() {
         System.out.println("\nLista de todas las materias");
         List<Materia> materias = new ArrayList<>();
@@ -82,6 +84,7 @@ public class MateriaData {
         }
         return materias;
     }
+    
     public void modificarMateria(Materia materia) {
         System.out.println("\nModificar materia");
         String sql = "UPDATE materia SET nombre = ? , año = ? WHERE idMateria = ?";

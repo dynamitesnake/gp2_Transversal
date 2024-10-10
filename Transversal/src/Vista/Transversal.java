@@ -12,11 +12,11 @@ public class Transversal {
 public Conexion miConexion;
 
     public static void main(String[] args) {
-        conectar();
+        conectarAlumno();
         conectaMateria();
     }
     
-    public static void conectar (){
+    public static void conectarAlumno(){
         //SI SE VAN A HACER PRUEBAS EN LA BASE DE DATOS
         //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
         //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE alumno AUTO_INCREMENT = 0;
@@ -53,7 +53,7 @@ public Conexion miConexion;
      
     }
 
-        public static void conectaMateria (){
+    public static void conectaMateria(){
         Materia matematica = new Materia("matematica", 2, true);
         Materia programacion = new Materia("programacion",2,true);
         Materia ingles = new Materia("ingles", 1, true);
@@ -81,9 +81,9 @@ public Conexion miConexion;
         
         
         List<Materia> materias = materiadata.listarMaterias();    
-          for (Materia materia : materias)  {
-              System.out.println(materia);
-          }
-}
+        for (Materia materia : materias) {
+            System.out.println(materia);
+        }
     }
+}
 
