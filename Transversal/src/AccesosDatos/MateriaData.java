@@ -28,7 +28,7 @@ public class MateriaData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if (rs.next()) {
-                materia.setIdMateria(rs.getInt(0));
+                materia.setIdMateria(rs.getInt(1));
             }
             ps.close();
         } catch (SQLException ex) {
@@ -103,7 +103,7 @@ public class MateriaData {
         }
     }
     
-     public void eliminarAlumno(int idMateria) {
+     public void eliminarMateria(int idMateria) {
         System.out.println("\nEliminar Materia");
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ? ";
         try {

@@ -20,11 +20,11 @@ public Conexion miConexion;
         //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
         //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE alumno AUTO_INCREMENT = 0;
         
-        Alumno alumnoEze = new Alumno(1, "Ezequiel", "Herrera", LocalDate.now(), true);
-        Alumno alumnoDebo = new Alumno(2, "Deborah", "Gomez", LocalDate.now(), true);
-        Alumno alumnoAgos = new Alumno(3, "Agostina", "Camargo", LocalDate.now(), true);
-        Alumno alumnoDario = new Alumno(4, "Dario", "Godoy", LocalDate.now(), true);
-        Alumno alumnoFer = new Alumno (5,"Fernando","Hernandez", LocalDate.now(), true);
+        Alumno alumnoEze = new Alumno("Ezequiel", "Herrera", LocalDate.now(), true);
+        Alumno alumnoDebo = new Alumno("Deborah", "Gomez", LocalDate.now(), true);
+        Alumno alumnoAgos = new Alumno("Agostina", "Camargo", LocalDate.now(), true);
+        Alumno alumnoDario = new Alumno( "Dario", "Godoy", LocalDate.now(), true);
+        Alumno alumnoFer = new Alumno ("Fernando","Hernandez", LocalDate.now(), true);
         
         alumnoData alumnoData = new alumnoData();
         
@@ -52,12 +52,14 @@ public Conexion miConexion;
         }
         */
     }
-    Materia matematica = new Materia("matematica", 2, true);
+    Materia mateMa = new Materia("matematica", 2, true);
     Materia programacion = new Materia("programacion",2,true);
     Materia ingles = new Materia("ingles", 1, true);
     Materia lengua = new Materia("lengua",1,true);
     Materia estadistica = new Materia("estadistica",3,true);
     
     MateriaData materiadata= new MateriaData();
+    
+    
     
 }

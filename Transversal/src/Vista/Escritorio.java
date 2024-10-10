@@ -27,76 +27,62 @@ public class Escritorio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        JMconsul = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        JMalu = new javax.swing.JMenu();
+        JMIformalu = new javax.swing.JMenuItem();
+        JMmaterias = new javax.swing.JMenu();
+        JMIformMate = new javax.swing.JMenuItem();
+        JMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 356, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Vista Alumno ");
+        JMconsul.setText("Consultas");
 
-        jMenuItem1.setText("Nuevo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("jMenuItem2");
+        JMconsul.add(jMenuItem2);
+
+        jMenuBar1.add(JMconsul);
+
+        JMalu.setText("Alumno");
+
+        JMIformalu.setText("Formulario de ALumno");
+        JMIformalu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                JMIformaluActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        JMalu.add(JMIformalu);
 
-        jMenuItem2.setText("Actualizar");
-        jMenu1.add(jMenuItem2);
+        jMenuBar1.add(JMalu);
 
-        jMenuItem3.setText("Borrar");
-        jMenu1.add(jMenuItem3);
+        JMmaterias.setText("Materia");
 
-        jMenuItem5.setText("Alta/Baja");
-        jMenu1.add(jMenuItem5);
+        JMIformMate.setText("Formulario Materia");
+        JMIformMate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIformMateActionPerformed(evt);
+            }
+        });
+        JMmaterias.add(JMIformMate);
 
-        jMenuItem4.setText("Mostrar");
-        jMenu1.add(jMenuItem4);
+        jMenuBar1.add(JMmaterias);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Vista  Materia");
-
-        jMenuItem6.setText("Nuevo");
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem7.setText("Actualizar");
-        jMenu2.add(jMenuItem7);
-
-        jMenuItem8.setText("Borrar");
-        jMenu2.add(jMenuItem8);
-
-        jMenuItem9.setText("Alta/Baja");
-        jMenu2.add(jMenuItem9);
-
-        jMenuItem10.setText("Mostrar");
-        jMenu2.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu2);
+        JMsalir.setText("Salir");
+        jMenuBar1.add(JMsalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -104,19 +90,31 @@ public class Escritorio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void JMIformaluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformaluActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        vistaAlumno alumno = new vistaAlumno();
+        alumno.setVisible(true);
+        Escritorio.add(alumno);
+    }//GEN-LAST:event_JMIformaluActionPerformed
+
+    private void JMIformMateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformMateActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        vistaMateria mater = new vistaMateria();
+        mater.setVisible(true);
+        Escritorio.add(mater);
+    }//GEN-LAST:event_JMIformMateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,19 +152,14 @@ public class Escritorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenuItem JMIformMate;
+    private javax.swing.JMenuItem JMIformalu;
+    private javax.swing.JMenu JMalu;
+    private javax.swing.JMenu JMconsul;
+    private javax.swing.JMenu JMmaterias;
+    private javax.swing.JMenu JMsalir;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
