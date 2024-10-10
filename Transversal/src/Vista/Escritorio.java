@@ -29,12 +29,15 @@ public class Escritorio extends javax.swing.JFrame {
 
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        JMconsul = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         JMalu = new javax.swing.JMenu();
         JMIformalu = new javax.swing.JMenuItem();
         JMmaterias = new javax.swing.JMenu();
         JMIformMate = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMImanejoInscripciones = new javax.swing.JMenuItem();
+        jMImanipulacionNotas = new javax.swing.JMenuItem();
+        JMconsulta = new javax.swing.JMenu();
+        jMIalumnosPorMateria = new javax.swing.JMenuItem();
         JMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,19 +50,12 @@ public class Escritorio extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGap(0, 357, Short.MAX_VALUE)
         );
-
-        JMconsul.setText("Consultas");
-
-        jMenuItem2.setText("jMenuItem2");
-        JMconsul.add(jMenuItem2);
-
-        jMenuBar1.add(JMconsul);
 
         JMalu.setText("Alumno");
 
-        JMIformalu.setText("Formulario de ALumno");
+        JMIformalu.setText("Formulario de Alumno");
         JMIformalu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMIformaluActionPerformed(evt);
@@ -71,7 +67,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         JMmaterias.setText("Materia");
 
-        JMIformMate.setText("Formulario Materia");
+        JMIformMate.setText("Formulario de Materia");
         JMIformMate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMIformMateActionPerformed(evt);
@@ -80,6 +76,23 @@ public class Escritorio extends javax.swing.JFrame {
         JMmaterias.add(JMIformMate);
 
         jMenuBar1.add(JMmaterias);
+
+        jMenu1.setText("Administración");
+
+        jMImanejoInscripciones.setText("Manejo de Inscripciones");
+        jMenu1.add(jMImanejoInscripciones);
+
+        jMImanipulacionNotas.setText("Manipulacion de notas");
+        jMenu1.add(jMImanipulacionNotas);
+
+        jMenuBar1.add(jMenu1);
+
+        JMconsulta.setText("Consultas");
+
+        jMIalumnosPorMateria.setText("Alumnos por Materia");
+        JMconsulta.add(jMIalumnosPorMateria);
+
+        jMenuBar1.add(JMconsulta);
 
         JMsalir.setText("Salir");
         jMenuBar1.add(JMsalir);
@@ -156,10 +169,13 @@ public class Escritorio extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMIformMate;
     private javax.swing.JMenuItem JMIformalu;
     private javax.swing.JMenu JMalu;
-    private javax.swing.JMenu JMconsul;
+    private javax.swing.JMenu JMconsulta;
     private javax.swing.JMenu JMmaterias;
     private javax.swing.JMenu JMsalir;
+    private javax.swing.JMenuItem jMIalumnosPorMateria;
+    private javax.swing.JMenuItem jMImanejoInscripciones;
+    private javax.swing.JMenuItem jMImanipulacionNotas;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
