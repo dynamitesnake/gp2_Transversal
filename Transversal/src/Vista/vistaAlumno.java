@@ -41,8 +41,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         JTFapellido = new javax.swing.JTextField();
         JTFdocu = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
-        JBactualizar = new javax.swing.JButton();
-        JBmodificar = new javax.swing.JButton();
+        JBsalir = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Alumno");
@@ -68,14 +67,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
         JBguardar.setText("Guardar");
 
-        JBactualizar.setText("Actualizar");
-        JBactualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBactualizarActionPerformed(evt);
-            }
-        });
-
-        JBmodificar.setText("Modificar");
+        JBsalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,27 +87,20 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(JBnuevo)
                         .addGap(20, 20, 20)))
-                .addGap(31, 31, 31)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFdocu))
-                        .addGap(217, 217, 217))
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFdocu)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTFnombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JTFapellido, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(JBmodificar)
-                                .addGap(18, 18, 18)
-                                .addComponent(JBactualizar)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
                         .addComponent(JBguardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(JBeliminar)
-                        .addGap(42, 42, 42))))
+                        .addGap(26, 26, 26))
+                    .addComponent(JTFnombre)
+                    .addComponent(JTFapellido))
+                .addGap(25, 25, 25)
+                .addComponent(JBsalir)
+                .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,26 +133,20 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBnuevo)
                     .addComponent(JBguardar)
-                    .addComponent(JBactualizar)
-                    .addComponent(JBmodificar)
-                    .addComponent(JBeliminar))
-                .addContainerGap(70, Short.MAX_VALUE))
+                    .addComponent(JBeliminar)
+                    .addComponent(JBsalir))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBactualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBactualizarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBactualizar;
     private javax.swing.JButton JBeliminar;
     private javax.swing.JButton JBguardar;
-    private javax.swing.JButton JBmodificar;
     private javax.swing.JButton JBnuevo;
+    private javax.swing.JButton JBsalir;
     private javax.swing.JTextField JTFapellido;
     private javax.swing.JTextField JTFdocu;
     private javax.swing.JTextField JTFnombre;
