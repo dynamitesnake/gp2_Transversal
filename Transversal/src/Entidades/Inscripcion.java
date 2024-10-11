@@ -1,7 +1,6 @@
 
 package Entidades;
 
-
 public class Inscripcion {
     private int idInscripcion;
     private Alumno alumno;

@@ -1,10 +1,7 @@
 package Vista;
 
-import AccesosDatos.Conexion;
-import AccesosDatos.MateriaData;
-import AccesosDatos.AlumnoData;
-import Entidades.Alumno;
-import Entidades.Materia;
+import AccesosDatos.*;
+import Entidades.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,8 +9,9 @@ public class Transversal {
 public Conexion miConexion;
 
     public static void main(String[] args) {
-        conectarAlumno();
-        conectaMateria();
+        //conectarAlumno();
+        //conectarMateria();
+        //conectarInscripcion();
     }
     
     public static void conectarAlumno(){
@@ -55,7 +53,7 @@ public Conexion miConexion;
         
     }
 
-    public static void conectaMateria(){
+    public static void conectarMateria(){
         //SI SE VAN A HACER PRUEBAS EN LA BASE DE DATOS
         //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
         //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE materia AUTO_INCREMENT = 0;
@@ -91,6 +89,20 @@ public Conexion miConexion;
             System.out.println(materia);
         }
         
+    }
+    
+    public static void conectarInscripcion() {
+        AlumnoData alumnoData = new AlumnoData();
+        MateriaData materiaData = new MateriaData();
+        InscripcionData inscripcionData = new InscripcionData();
+        
+        //Alumno alumno = alumnoData.buscarAlumnoPorId(3);
+        //Materia materia = materiaData.buscarMateria(6);
+        //Inscripcion inscripcion = new Inscripcion(alumno, materia, 9);
+        
+        //inscripcionData.guardarInscripcion(inscripcion);
+        //inscripcionData.actualizarNota(3, 6, 10);
+        //inscripcionData.borrarInscripcionMateriaAlumno(3, 6);
     }
     
 }
