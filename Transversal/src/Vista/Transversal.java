@@ -3,7 +3,6 @@ package Vista;
 import AccesosDatos.*;
 import Entidades.*;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Transversal {
 public Conexion miConexion;
