@@ -47,12 +47,12 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         JB_actualizar = new javax.swing.JButton();
         JB_buscar = new javax.swing.JButton();
-        txtnacimiento = new javax.swing.JTextField();
         jB_agregar = new javax.swing.JButton();
         txtid = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jB_mostrar = new javax.swing.JButton();
         jB_alta = new javax.swing.JButton();
+        jD_nac = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setIconifiable(true);
@@ -151,8 +151,9 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtnacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jD_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel2)
@@ -231,10 +232,14 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jRadioButton1))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jD_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jB_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,7 +342,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         int dni = Integer.parseInt(txtDNI.getText());
         String nombre = txtnom.getText();
         String apellido = txtapellido.getText();
-        LocalDate fechaNacimiento = LocalDate.parse(txtnacimiento.getText());
+        LocalDate fechaNacimiento = LocalDate.parse(jD_nac.getDateFormatString());
         boolean estado = true;
 
         aluData.guardarAlumno(new Alumno(idAlumno, dni, nombre, apellido, fechaNacimiento, estado));
@@ -361,7 +366,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         txtDNI.setEnabled(true);
         txtnom.setEnabled(true);
         txtapellido.setEnabled(true);
-        txtnacimiento.setEnabled(true);
+        jD_nac.setEnabled(true);
         
         limpiarCampos();
         
@@ -374,7 +379,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
             if (alumno.getDni() == dni) {
                 alumno.setNombre(txtnom.getText());
                 alumno.setApellido(txtapellido.getText());
-                alumno.setfechaNacimiento(LocalDate.parse(txtnacimiento.getText()));
+                alumno.setfechaNacimiento(LocalDate.parse(jD_nac.getDateFormatString()));
                 JOptionPane.showMessageDialog(null, "Alumno modificado: " + alumno.getNombre() + " " + alumno.getApellido());
                 limpiarCampos();
                 return;
@@ -430,7 +435,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         txtDNI.setText("");
         txtnom.setText("");
         txtapellido.setText("");
-        txtnacimiento.setText("");
+        jD_nac.setDate(null);
     }
        
         
@@ -443,6 +448,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jB_agregar;
     private javax.swing.JButton jB_alta;
     private javax.swing.JButton jB_mostrar;
+    private com.toedter.calendar.JDateChooser jD_nac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -454,7 +460,6 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtid;
-    private javax.swing.JTextField txtnacimiento;
     private javax.swing.JTextField txtnom;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,15 +19,15 @@ public Conexion miConexion;
         //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
         //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE alumno AUTO_INCREMENT = 0;
         
-        Alumno alumnoEze = new Alumno(123, "Ezequiel", "Herrera", LocalDate.now(), true);
+        /*Alumno alumnoEze = new Alumno(123, "Ezequiel", "Herrera", LocalDate.now(), true);
         Alumno alumnoDebo = new Alumno(234, "Deborah", "Gomez", LocalDate.now(), true);
         Alumno alumnoAgos = new Alumno(345, "Agostina", "Camargo", LocalDate.now(), true);
         Alumno alumnoDario = new Alumno(456, "Dario", "Godoy", LocalDate.now(), true);
-        Alumno alumnoFer = new Alumno (567, "Fernando","Hernandez", LocalDate.now(), true);
+        Alumno alumnoFer = new Alumno (567, "Fernando","Hernandez", LocalDate.now(), true);*/
         
         AlumnoData alumnoData = new AlumnoData();
         
-        alumnoData.guardarAlumno(alumnoFer);
+        /*alumnoData.guardarAlumno(alumnoFer);
         alumnoData.guardarAlumno(alumnoAgos);
         alumnoData.guardarAlumno(alumnoDario);
         alumnoData.guardarAlumno(alumnoDebo);
@@ -38,13 +38,13 @@ public Conexion miConexion;
         
         //PARA MODIFICAR SE TIENE QUE ESPECIFICAR EL 'ID' EN EL CONSTRUCTOR, EL ID DE LA MATERIA A MODIFICAR
         //EN ESTE CASO SERIA EL 'ID' 1 DEL ALUMNO FERNANDO
-        Alumno alumnoModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
+       /* Alumno alumnoModificado = new Alumno(1, 666,"Fernando2.0","Hernandez2.0", LocalDate.now(), true);
         alumnoData.modificarAlumno(alumnoModificado);
         
         alumnoData.darDeBajaPorId(3);
         alumnoData.darDeAltaPorId(3);
         
-        alumnoData.borrarAlumnoPorId(1);
+        alumnoData.borrarAlumnoPorId(1);*/
         
         List<Alumno> alumnos = alumnoData.listarAlumnos();
         for (Alumno alumno: alumnos) {
