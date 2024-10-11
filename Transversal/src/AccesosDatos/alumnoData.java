@@ -7,14 +7,14 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class alumnoData {
+public class AlumnoData {
     private Connection conn =null;
     
-    public alumnoData () {
+    public AlumnoData () {
         this.conn = Conexion.getConexion();
     }
     public void guardarAlumno(Alumno alumno) {
-        System.out.println("\nGuardar alumno");
+        System.out.println("\nGuardar alumno: " + alumno.getNombre());
         String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -38,7 +38,7 @@ public class alumnoData {
     }
     
     public Alumno buscarAlumnoPorId(int idAlumno) {
-        System.out.println("\nBuscar alumno por id");
+        System.out.println("\nBuscar alumno por id: " + idAlumno);
         Alumno alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
         try {
@@ -65,7 +65,7 @@ public class alumnoData {
     }
     
     public Alumno buscarAlumnoPorDni(int dni) {
-        System.out.println("\nBuscar alumno por DNI");
+        System.out.println("\nBuscar alumno por DNI: " + dni);
         Alumno alumno = null;
         String sql = "SELECT * FROM alumno WHERE dni = ? AND estado = 1";
         try {
@@ -116,7 +116,7 @@ public class alumnoData {
     }
     
     public void modificarAlumno(Alumno alumno) {
-        System.out.println("\nModificar alumno");
+        System.out.println("\nModificar alumno: " + alumno.getNombre());
         String sql = "UPDATE alumno SET dni = ? , apellido = ?, nombre = ?, fechaNacimiento = ? WHERE idAlumno = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -139,7 +139,7 @@ public class alumnoData {
     }
     
     public void darDeBajaPorId(int idAlumno) {
-        System.out.println("\nDar de baja");
+        System.out.println("\nDar de baja a id: " + idAlumno);
         String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno = ? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -156,7 +156,7 @@ public class alumnoData {
     }
     
     public void darDeAltaPorId(int idAlumno) {
-        System.out.println("\nDar de alta");
+        System.out.println("\nDar de alta a id: " + idAlumno);
         String sql = "UPDATE alumno SET estado = 1 WHERE idAlumno = ? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -173,9 +173,8 @@ public class alumnoData {
     }
     
     public void borrarAlumnoPorId(int idAlumno) {
-        System.out.println("\nBorrar alumno");
+        System.out.println("\nBorrar alumno con id: " + idAlumno);
         String sql = "DELETE FROM alumno WHERE idAlumno = ?";
-    
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAlumno);
