@@ -9,16 +9,18 @@ public class Transversal {
 public Conexion miConexion;
 
     public static void main(String[] args) {
+        /*
+        ALTER TABLE inscripcion AUTO_INCREMENT = 0;
+        ALTER TABLE materia AUTO_INCREMENT = 0;
+        ALTER TABLE alumno AUTO_INCREMENT = 0;
+        */
+        
         //conectarAlumno();
         //conectarMateria();
-        //conectarInscripcion();
+        conectarInscripcion();
     }
     
     public static void conectarAlumno(){
-        //SI SE VAN A HACER PRUEBAS EN LA BASE DE DATOS
-        //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
-        //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE alumno AUTO_INCREMENT = 0;
-        
         Alumno alumnoEze = new Alumno(123, "Ezequiel", "Herrera", LocalDate.now(), true);
         Alumno alumnoDebo = new Alumno(234, "Deborah", "Gomez", LocalDate.now(), true);
         Alumno alumnoAgos = new Alumno(345, "Agostina", "Camargo", LocalDate.now(), true);
@@ -46,17 +48,13 @@ public Conexion miConexion;
         
         alumnoData.borrarAlumnoPorId(1);
         
-        List<Alumno> alumnos = alumnoData.listarAlumnos();
-        for (Alumno alumno: alumnos) {
-            System.out.println(alumno);
+        for (Alumno alumnos: alumnoData.listarAlumnos()) {
+            System.out.println(alumnos);
         }
         
     }
 
     public static void conectarMateria(){
-        //SI SE VAN A HACER PRUEBAS EN LA BASE DE DATOS
-        //SE RECOMIENDA TENER LA BASE DE DATOS SIN TABLAS 
-        //Y UTILIZAR ESTE COMANDO SQL: ALTER TABLE materia AUTO_INCREMENT = 0;
         Materia matematica = new Materia("Matematica", 2, true);
         Materia programacion = new Materia("Programacion",2,true);
         Materia ingles = new Materia("Ingles", 1, true);
@@ -84,9 +82,8 @@ public Conexion miConexion;
         
         materiadata.borrarMateriaPorId(1);
         
-        List<Materia> materias = materiadata.listarMaterias();    
-        for (Materia materia : materias) {
-            System.out.println(materia);
+        for (Materia materias: materiadata.listarMaterias()) {
+            System.out.println(materias);
         }
         
     }
@@ -95,14 +92,34 @@ public Conexion miConexion;
         AlumnoData alumnoData = new AlumnoData();
         MateriaData materiaData = new MateriaData();
         InscripcionData inscripcionData = new InscripcionData();
-        
-        //Alumno alumno = alumnoData.buscarAlumnoPorId(3);
-        //Materia materia = materiaData.buscarMateria(6);
-        //Inscripcion inscripcion = new Inscripcion(alumno, materia, 9);
+        Alumno alumno = alumnoData.buscarAlumnoPorId(1);
+        Materia materia = materiaData.buscarMateria(7);
+        Inscripcion inscripcion = new Inscripcion(alumno, materia, 10);
         
         //inscripcionData.guardarInscripcion(inscripcion);
         //inscripcionData.actualizarNota(3, 6, 10);
         //inscripcionData.borrarInscripcionMateriaAlumno(3, 6);
+        /*
+        for (Inscripcion inscripciones: inscripcionData.obtenerInscripciones()) {
+            System.out.println(inscripciones);
+        }
+        
+        for (Inscripcion inscripciones: inscripcionData.obtenerInscripcionesPorAlumno(1)) {
+            System.out.println(inscripciones);
+        }
+        
+        for (Materia materias: inscripcionData.obtenerMateriasCursadas(1)) {
+            System.out.println(materias);
+        }
+        
+        for (Materia materias: inscripcionData.obtenerMateriasNoCursadas(1)) {
+            System.out.println(materias);
+        }
+        */
+        for (Alumno alumnos: inscripcionData.obtenerAlumnosXMateria(1)) {
+            System.out.println(alumnos);
+        }
+        
     }
     
 }
