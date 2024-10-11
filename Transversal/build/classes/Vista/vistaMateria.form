@@ -149,14 +149,8 @@
     <Component class="javax.swing.JTextField" name="JTFnombre">
     </Component>
     <Component class="javax.swing.JTextField" name="JTFa&#xf1;o">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFa&#xf1;oActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="JRBestado">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JRBestadoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBbuscar">
       <Properties>

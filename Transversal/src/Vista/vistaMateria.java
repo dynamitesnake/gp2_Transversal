@@ -13,20 +13,14 @@ import javax.swing.JOptionPane;
  * @author deborahhhh
  */
 
-public class vistaMateria extends javax.swing.JInternalFrame {
-private MateriaData materData = new MateriaData();
-private Materia materActual = null;
-
-   
-    public vistaMateria() {
-
-public class vistaMateria extends javax.swing.JInternalFrame {
+    public class vistaMateria extends javax.swing.JInternalFrame {
+        private MateriaData materData = new MateriaData();
+        private Materia materActual = null;
 
     /**
      * Creates new form vistaMateria
      */
-    public vistaMateria(){
-
+        public vistaMateria(){
         initComponents();
     }
    
@@ -69,18 +63,6 @@ public class vistaMateria extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Estado:");
-
-        JTFaño.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFañoActionPerformed(evt);
-            }
-        });
-
-        JRBestado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JRBestadoActionPerformed(evt);
-            }
-        });
 
         JBbuscar.setText("Buscar");
         JBbuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,14 +165,6 @@ public class vistaMateria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JRBestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBestadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JRBestadoActionPerformed
-
-    private void JTFañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFañoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFañoActionPerformed
 
     private void JBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbuscarActionPerformed
        
