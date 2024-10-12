@@ -342,7 +342,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         int dni = Integer.parseInt(txtDNI.getText());
         String nombre = txtnom.getText();
         String apellido = txtapellido.getText();
-        LocalDate fechaNacimiento = LocalDate.parse(jD_nac.getDateFormatString());
+        LocalDate fechaNacimiento = new java.sql.Date(jD_nac.getDate().getTime()).toLocalDate();
         boolean estado = true;
 
         aluData.guardarAlumno(new Alumno(idAlumno, dni, nombre, apellido, fechaNacimiento, estado));
@@ -351,7 +351,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }
     
     private void buscarAlumnoPorId() {
-        int idAlumno = Integer.parseInt(txtDNI.getText());
+        int idAlumno = Integer.parseInt(txtid.getText());
         for (Alumno alumno : alumnos) {
             if (alumno.getIdAlumno()== idAlumno) {
             JOptionPane.showMessageDialog(null, "Alumno encontrado: " + alumno.getNombre() + " " + alumno.getApellido());    
@@ -359,6 +359,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             }
         }
         JOptionPane.showMessageDialog(null, "Alumno no encontrado");
+        
     }
 
     private void nuevoAlumno() {
@@ -379,7 +380,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             if (alumno.getDni() == dni) {
                 alumno.setNombre(txtnom.getText());
                 alumno.setApellido(txtapellido.getText());
-                alumno.setfechaNacimiento(LocalDate.parse(jD_nac.getDateFormatString()));
+                LocalDate fechaNacimiento = new java.sql.Date(jD_nac.getDate().getTime()).toLocalDate();
                 JOptionPane.showMessageDialog(null, "Alumno modificado: " + alumno.getNombre() + " " + alumno.getApellido());
                 limpiarCampos();
                 return;
@@ -425,10 +426,18 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     
     private void mostrarAlumnos() {
         JOptionPane.showMessageDialog(null, "Lista de Alumnos: ");
+        StringBuilder sb = new StringBuilder("Lista de Alumnos:\n");
         for (Alumno alumno : alumnos) {
-            JOptionPane.showMessageDialog(null, alumno.getIdAlumno() + " - " + alumno.getDni() + " - " + alumno.getNombre() + " - " + alumno.getApellido() + " - " + alumno.getFechaNacimiento() + " - " + (alumno.isActivo() ? "Activo" : "Inactivo"));
+            sb.append(alumno.getIdAlumno()).append(" - ")
+              .append(alumno.getDni()).append(" - ")
+              .append(alumno.getNombre()).append(" - ")
+              .append(alumno.getApellido()).append(" - ")
+              .append(alumno.getFechaNacimiento()).append(" - ")
+              .append(alumno.isActivo() ? "Activo" : "Inactivo").append("\n");
+        }
+        JOptionPane.showMessageDialog(null, sb.toString());
     }
-    }
+      
     
     private void limpiarCampos() {
         txtid.setText("");
