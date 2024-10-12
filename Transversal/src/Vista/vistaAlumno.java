@@ -259,82 +259,51 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
     private void JB_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_actualizarActionPerformed
       
-        JB_actualizar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 actualizarAlumno();
-            }
-        });
+        
    
     }//GEN-LAST:event_JB_actualizarActionPerformed
 
     private void jB_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_agregarActionPerformed
         
-        jB_agregar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 agregarAlumno();
-            }
-        });
         
     }//GEN-LAST:event_jB_agregarActionPerformed
 
     private void JB_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_nuevoActionPerformed
         
-        JB_nuevo.addActionListener(e -> nuevoAlumno());
+        nuevoAlumno();
         
     }//GEN-LAST:event_JB_nuevoActionPerformed
 
     private void JB_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_buscarActionPerformed
-      
-        JB_buscar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+
                 buscarAlumnoPorId();
-            }
-        });
+        
     }//GEN-LAST:event_JB_buscarActionPerformed
 
     private void JB_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_eliminarActionPerformed
-        
-        JB_eliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+
                 eliminarAlumno();
-            }
-        });
-        
+         
     }//GEN-LAST:event_JB_eliminarActionPerformed
 
     private void jB_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_mostrarActionPerformed
-        
-         jB_mostrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    
                 mostrarAlumnos();
-            }
-        });
+        
     }//GEN-LAST:event_jB_mostrarActionPerformed
 
     private void JB_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_bajaActionPerformed
-        
-        JB_baja.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+     
                 bajaAlumno();
-            }
-        });
-        
+       
     }//GEN-LAST:event_JB_bajaActionPerformed
 
     private void jB_altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_altaActionPerformed
-        
-        jB_alta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    
                 altaAlumno();
-            }
-        });
+       
     }//GEN-LAST:event_jB_altaActionPerformed
     
     private void agregarAlumno() {
