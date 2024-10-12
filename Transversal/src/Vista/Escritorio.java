@@ -88,6 +88,11 @@ public class Escritorio extends javax.swing.JFrame {
         jMenu1.add(jMImanejoInscripciones);
 
         jMImanipulacionNotas.setText("Manipulacion de notas");
+        jMImanipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMImanipulacionNotasActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMImanipulacionNotas);
 
         jMenuBar1.add(jMenu1);
@@ -142,6 +147,15 @@ public class Escritorio extends javax.swing.JFrame {
         inscri.setVisible(true);
         Escritorio.moveToFront(this);        
     }//GEN-LAST:event_jMImanejoInscripcionesActionPerformed
+
+    private void jMImanipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImanipulacionNotasActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaCargaNotas notas = new VistaCargaNotas();
+        notas.setVisible(true);
+        Escritorio.add(notas);
+        
+    }//GEN-LAST:event_jMImanipulacionNotasActionPerformed
 
     /**
      * @param args the command line arguments
