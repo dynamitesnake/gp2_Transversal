@@ -7,10 +7,10 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class AlumnoData {
+public class alumnoData {
     private Connection conn =null;
     
-    public AlumnoData () {
+    public alumnoData () {
         this.conn = Conexion.getConexion();
     }
     public void guardarAlumno(Alumno alumno) {
@@ -25,14 +25,12 @@ public class AlumnoData {
             ps.setBoolean(5, alumno.isActivo());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            
             if (rs.next()) {
                 alumno.setIdAlumno(rs.getInt(1));
             }
             ps.close();
         } catch (SQLException ex) {
             System.out.println("pruebas");
-            
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
     }
@@ -45,7 +43,6 @@ public class AlumnoData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet rs = ps.executeQuery();
-            
             if (rs.next()) {
                 alumno = new Alumno();
                 alumno.setIdAlumno(idAlumno);
@@ -72,7 +69,6 @@ public class AlumnoData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
-            
             if (rs.next()) {
                 alumno=new Alumno(); 
                 alumno.setIdAlumno(rs.getInt("idAlumno")); 
@@ -145,7 +141,6 @@ public class AlumnoData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             int fila=ps.executeUpdate();
-            
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, "Baja al alumno");
             }
@@ -162,7 +157,6 @@ public class AlumnoData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             int fila=ps.executeUpdate();
-            
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, "Alta al alumno");
             }
@@ -179,7 +173,6 @@ public class AlumnoData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             int fila = ps.executeUpdate();
-        
             if (fila == 1) {
                JOptionPane.showMessageDialog(null, "Alumno borrado exitosamente");
             } else {

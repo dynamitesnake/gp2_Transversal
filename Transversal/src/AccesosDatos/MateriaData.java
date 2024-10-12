@@ -1,5 +1,4 @@
 
-
 package AccesosDatos;
 
 import AccesosDatos.Conexion;
@@ -8,13 +7,13 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-
 public class MateriaData {
     private Connection conn =null;
 
     public MateriaData() {
         this.conn = Conexion.getConexion();
     }
+    
     public void guardarMateria(Materia materia) {
         System.out.println("\nGuardar materia: " + materia.getNombre());
         String sql = "INSERT INTO materia (nombre, año, estado) VALUES (?, ?, ?)";
@@ -25,7 +24,6 @@ public class MateriaData {
             ps.setBoolean(3, materia.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            
             if (rs.next()) {
                 materia.setIdMateria(rs.getInt(1));
             }
@@ -43,14 +41,12 @@ public class MateriaData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idMateria);
             ResultSet rs = ps.executeQuery();
-            
             if (rs.next()) {
                 materia=new Materia();
                 materia.setIdMateria(idMateria);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(true);
-               
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la materia");
             }
@@ -74,7 +70,6 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(rs.getBoolean("estado"));
-                
                 materias.add(materia);
             }
             ps.close();
@@ -93,7 +88,6 @@ public class MateriaData {
             ps.setInt(2, materia.getAño());
             ps.setInt(3, materia.getIdMateria()); 
             int exito = ps.executeUpdate();
-            
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Modificado exitosamente");
             } else {
@@ -112,7 +106,6 @@ public class MateriaData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idMateria);
             int fila=ps.executeUpdate();
-            
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, "Baja de materia.");
             }
@@ -129,7 +122,6 @@ public class MateriaData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idMateria);
             int fila=ps.executeUpdate();
-            
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, "Alta de materia.");
             }
@@ -146,7 +138,6 @@ public class MateriaData {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idMateria);
             int fila = ps.executeUpdate();
-        
             if (fila == 1) {
                JOptionPane.showMessageDialog(null, "Materia borrada exitosamente");
             } else {

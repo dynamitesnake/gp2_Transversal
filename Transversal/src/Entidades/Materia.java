@@ -57,10 +57,9 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia " + getNombre() 
-                + "{" +
+        return "Materia " + getNombre() + "{" +
                 "\nidMateria= " + idMateria +
-                ",\nnombre= '" + nombre + '\'' +
+                ",\nnombre= " + nombre +
                 ",\naño= " + año +
                 ",\nestado= " + estado +
                 "}\n";

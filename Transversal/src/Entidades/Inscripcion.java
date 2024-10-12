@@ -1,7 +1,6 @@
 
 package Entidades;
 
-
 public class Inscripcion {
     private int idInscripcion;
     private Alumno alumno;
@@ -62,9 +61,11 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        String insc = idInscripcion+" "+alumno.getNombre()+", "+alumno.getApellido()+" "+materia.getNombre();
-        return insc;
+        return "Inscripcion " + "{" +
+                "\nAlumno= " + alumno.getNombre() + " " + alumno.getApellido() +
+                ",\nMateria= " + materia.getNombre() + " " + materia.getAño() +
+                ",\nNota= " + nota +
+                "}\n";
     }
-    
     
 }

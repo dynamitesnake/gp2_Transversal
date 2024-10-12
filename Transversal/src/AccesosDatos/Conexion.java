@@ -4,7 +4,6 @@ package AccesosDatos;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-
 public class Conexion {
     private static final String URL="jdbc:mariadb://localhost:3306/";
     private static final String DB="universidadulp";
