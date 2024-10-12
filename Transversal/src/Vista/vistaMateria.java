@@ -13,18 +13,16 @@ import javax.swing.JOptionPane;
  * @author deborahhhh
  */
 
-public class vistaMateria extends javax.swing.JInternalFrame {
-private MateriaData materData = new MateriaData();
-private Materia materActual = null;
+
 
    
-    public vistaMateria() {
+
 
 public class vistaMateria extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form vistaMateria
-     */
+    private MateriaData materData = new MateriaData();
+private Materia materActual = null;
+
     public vistaMateria(){
 
         initComponents();

@@ -1,7 +1,7 @@
 
 package Vista;
 
-import AccesosDatos.AlumnoData;
+import AccesosDatos.alumnoData;
 import Entidades.Alumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author deborahhhh
  */
-public class VistaAlumno extends javax.swing.JInternalFrame {
-    private AlumnoData aluData = new AlumnoData();
+public class vistaAlumno extends javax.swing.JInternalFrame {
+    private alumnoData aluData = new alumnoData();
     private Alumno alumActual = null;
     private List<Alumno> alumnos = new ArrayList<>();
 
-    public VistaAlumno() {
+    public vistaAlumno() {
         initComponents();
     }
 

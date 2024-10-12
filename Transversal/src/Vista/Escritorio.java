@@ -116,7 +116,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void JMIformaluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformaluActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        VistaAlumno alumno = new VistaAlumno();
+        vistaAlumno alumno = new vistaAlumno();
         alumno.setVisible(true);
         Escritorio.add(alumno);
     }//GEN-LAST:event_JMIformaluActionPerformed
@@ -124,7 +124,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void JMIformMateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformMateActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        VistaMateria mater = new VistaMateria();
+        vistaMateria mater = new vistaMateria();
         mater.setVisible(true);
         Escritorio.add(mater);
     }//GEN-LAST:event_JMIformMateActionPerformed
