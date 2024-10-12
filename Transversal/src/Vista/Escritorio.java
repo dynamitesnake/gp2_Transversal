@@ -80,6 +80,11 @@ public class Escritorio extends javax.swing.JFrame {
         jMenu1.setText("Administración");
 
         jMImanejoInscripciones.setText("Manejo de Inscripciones");
+        jMImanejoInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMImanejoInscripcionesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMImanejoInscripciones);
 
         jMImanipulacionNotas.setText("Manipulacion de notas");
@@ -128,6 +133,15 @@ public class Escritorio extends javax.swing.JFrame {
         mater.setVisible(true);
         Escritorio.add(mater);
     }//GEN-LAST:event_JMIformMateActionPerformed
+
+    private void jMImanejoInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImanejoInscripcionesActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        vistaInscripcion inscri = new vistaInscripcion();
+        Escritorio.add(inscri);
+        inscri.setVisible(true);
+        Escritorio.moveToFront(this);        
+    }//GEN-LAST:event_jMImanejoInscripcionesActionPerformed
 
     /**
      * @param args the command line arguments

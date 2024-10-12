@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Xethias
@@ -15,6 +17,7 @@ public class vistaInscripcion extends javax.swing.JInternalFrame {
      */
     public vistaInscripcion() {
         initComponents();
+       
     }
 
     /**
@@ -29,33 +32,28 @@ public class vistaInscripcion extends javax.swing.JInternalFrame {
         jlbTitulo = new javax.swing.JLabel();
         jlbSeleccione = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jcbAlumno = new javax.swing.JComboBox<>();
+        jcbMateria = new javax.swing.JComboBox<>();
         jlbListado = new javax.swing.JLabel();
         jrbInscripta = new javax.swing.JRadioButton();
         jrbNoinscripto = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbMostaralumnos = new javax.swing.JTable();
         jbnInsertar = new javax.swing.JButton();
-        jbnAñadirinscription = new javax.swing.JButton();
+        jbnAnularinscripcion = new javax.swing.JButton();
         jbnSalir = new javax.swing.JButton();
-
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1 = new javax.swing.JLabel();
+        jcbAlumno = new javax.swing.JComboBox<>();
 
         jlbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbTitulo.setText("Formulario de Inscripcion");
-        getContentPane().add(jlbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 217, -1));
 
         jlbSeleccione.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlbSeleccione.setText("Seleccione un Alumno:");
-        getContentPane().add(jlbSeleccione, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 55, 144, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 27, 362, 10));
 
-        jcbAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jcbAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 55, -1, -1));
+        jcbMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jlbListado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbListado.setText("Listado de Materias");
-        getContentPane().add(jlbListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 134, 165, -1));
 
         jrbInscripta.setText(" Materias Inscriptas");
         jrbInscripta.addActionListener(new java.awt.event.ActionListener() {
@@ -63,10 +61,8 @@ public class vistaInscripcion extends javax.swing.JInternalFrame {
                 jrbInscriptaActionPerformed(evt);
             }
         });
-        getContentPane().add(jrbInscripta, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 95, -1, -1));
 
         jrbNoinscripto.setText("Materias No Inscriptas");
-        getContentPane().add(jrbNoinscripto, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 95, -1, -1));
 
         jtbMostaralumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,16 +77,100 @@ public class vistaInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtbMostaralumnos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 165, 375, 179));
+        jbnInsertar.setText("Inscribir");
+        jbnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbnInsertarActionPerformed(evt);
+            }
+        });
 
-        jbnInsertar.setText("Insertar");
-        getContentPane().add(jbnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        jbnAñadirinscription.setText("Añadir inscripción");
-        getContentPane().add(jbnAñadirinscription, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
+        jbnAnularinscripcion.setText("Anular Inscripción");
 
         jbnSalir.setText("Salir");
-        getContentPane().add(jbnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+        jbnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbnSalirActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Seleccione una Materia:");
+
+        jcbAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jlbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jlbSeleccione, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jcbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jrbInscripta)
+                        .addGap(55, 55, 55)
+                        .addComponent(jrbNoinscripto))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jlbListado, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jbnInsertar)
+                        .addGap(48, 48, 48)
+                        .addComponent(jbnAnularinscripcion)
+                        .addGap(36, 36, 36)
+                        .addComponent(jbnSalir)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jlbTitulo)
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jlbSeleccione))
+                    .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jcbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jrbInscripta)
+                    .addComponent(jrbNoinscripto))
+                .addGap(9, 9, 9)
+                .addComponent(jlbListado)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbnInsertar)
+                    .addComponent(jbnAnularinscripcion)
+                    .addComponent(jbnSalir))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,14 +179,24 @@ public class vistaInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbInscriptaActionPerformed
 
+    private void jbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnSalirActionPerformed
+        this.dispose();    
+    }//GEN-LAST:event_jbnSalirActionPerformed
+
+    private void jbnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnInsertarActionPerformed
+       
+    }//GEN-LAST:event_jbnInsertarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton jbnAñadirinscription;
+    private javax.swing.JButton jbnAnularinscripcion;
     private javax.swing.JButton jbnInsertar;
     private javax.swing.JButton jbnSalir;
     private javax.swing.JComboBox<String> jcbAlumno;
+    private javax.swing.JComboBox<String> jcbMateria;
     private javax.swing.JLabel jlbListado;
     private javax.swing.JLabel jlbSeleccione;
     private javax.swing.JLabel jlbTitulo;
