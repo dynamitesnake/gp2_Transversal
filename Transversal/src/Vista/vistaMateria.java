@@ -209,6 +209,7 @@ import javax.swing.JOptionPane;
         if(materActual==null){
         materActual = new Materia(idMateria,nombre , año, estado);
         materData.guardarMateria(materActual);
+        JOptionPane.showMessageDialog(null,"Materia " +nombre+" guardada correctamente");
        
 
         }else{

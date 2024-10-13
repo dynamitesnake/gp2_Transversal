@@ -6,6 +6,7 @@ import Entidades.Alumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -319,17 +320,21 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         limpiarCampos();
     }
     
-    private void buscarAlumnoPorId() {
-        int idAlumno = Integer.parseInt(txtid.getText());
-        for (Alumno alumno : alumnos) {
-            if (alumno.getIdAlumno()== idAlumno) {
-            JOptionPane.showMessageDialog(null, "Alumno encontrado: " + alumno.getNombre() + " " + alumno.getApellido());    
-                return;
-            }
+ private void buscarAlumnoPorId() {
+        Integer idAlumno = Integer.parseInt(txtid.getText());
+        alumActual=aluData.buscarAlumnoPorId(idAlumno);
+        if(alumActual !=null){
+            txtnom.setText(alumActual.getNombre());
+            txtDNI.setText(String.valueOf(alumActual.getDni()));
+            txtapellido.setText(alumActual.getApellido());
+            jRadioButton1.setSelected(alumActual.isActivo());
+            LocalDate lc= alumActual.getFechaNacimiento();
+            java.util.Date date=java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jD_nac.setDate(date);
         }
-        JOptionPane.showMessageDialog(null, "Alumno no encontrado");
         
-    }
+     }
+    
 
     private void nuevoAlumno() {
     // Habilitar los campos de entrada
