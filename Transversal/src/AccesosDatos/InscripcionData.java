@@ -5,8 +5,6 @@ import Entidades.*;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class InscripcionData {
     private Connection conn = null;
