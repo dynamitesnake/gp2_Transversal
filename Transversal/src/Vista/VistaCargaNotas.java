@@ -59,7 +59,6 @@ public class VistaCargaNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tabla_notas);
 
         JB_guar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        JB_guar.setIcon(new javax.swing.ImageIcon("C:\\Users\\54266\\Downloads\\iconos_netbeans\\iconos netbeans\\guardar.png")); // NOI18N
         JB_guar.setText("GUARDAR");
         JB_guar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +106,7 @@ public class VistaCargaNotas extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(131, 131, 131)
+                .addGap(159, 159, 159)
                 .addComponent(JB_guar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -133,9 +132,9 @@ public class VistaCargaNotas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(JB_guar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5))
+                .addContainerGap())
         );
 
         pack();
