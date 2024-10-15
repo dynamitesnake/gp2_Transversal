@@ -13,14 +13,16 @@ import javax.swing.JOptionPane;
  * @author deborahhhh
  */
 
-    public class VistaMateria extends javax.swing.JInternalFrame {
+
+    public class vistaMateria extends javax.swing.JInternalFrame {
         private MateriaData materData = new MateriaData();
         private Materia materActual = null;
 
     /**
      * Creates new form vistaMateria
      */
-        public VistaMateria(){
+        public vistaMateria(){
+
         initComponents();
     }
    
@@ -207,6 +209,7 @@ import javax.swing.JOptionPane;
         if(materActual==null){
         materActual = new Materia(idMateria,nombre , año, estado);
         materData.guardarMateria(materActual);
+        JOptionPane.showMessageDialog(null,"Materia " +nombre+" guardada correctamente");
        
 
         }else{

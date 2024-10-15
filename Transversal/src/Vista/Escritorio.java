@@ -80,9 +80,19 @@ public class Escritorio extends javax.swing.JFrame {
         jMenu1.setText("Administración");
 
         jMImanejoInscripciones.setText("Manejo de Inscripciones");
+        jMImanejoInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMImanejoInscripcionesActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMImanejoInscripciones);
 
         jMImanipulacionNotas.setText("Manipulacion de notas");
+        jMImanipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMImanipulacionNotasActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMImanipulacionNotas);
 
         jMenuBar1.add(jMenu1);
@@ -116,7 +126,7 @@ public class Escritorio extends javax.swing.JFrame {
     private void JMIformaluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformaluActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        VistaAlumno alumno = new VistaAlumno();
+        vistaAlumno alumno = new vistaAlumno();
         alumno.setVisible(true);
         Escritorio.add(alumno);
     }//GEN-LAST:event_JMIformaluActionPerformed
@@ -124,10 +134,28 @@ public class Escritorio extends javax.swing.JFrame {
     private void JMIformMateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIformMateActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        VistaMateria mater = new VistaMateria();
+        vistaMateria mater = new vistaMateria();
         mater.setVisible(true);
         Escritorio.add(mater);
     }//GEN-LAST:event_JMIformMateActionPerformed
+
+    private void jMImanejoInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImanejoInscripcionesActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        vistaInscripcion inscri = new vistaInscripcion();
+        Escritorio.add(inscri);
+        inscri.setVisible(true);
+        Escritorio.moveToFront(this);        
+    }//GEN-LAST:event_jMImanejoInscripcionesActionPerformed
+
+    private void jMImanipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImanipulacionNotasActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaCargaNotas notas = new VistaCargaNotas();
+        notas.setVisible(true);
+        Escritorio.add(notas);
+        
+    }//GEN-LAST:event_jMImanipulacionNotasActionPerformed
 
     /**
      * @param args the command line arguments

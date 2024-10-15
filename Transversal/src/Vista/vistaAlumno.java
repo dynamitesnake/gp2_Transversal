@@ -1,11 +1,12 @@
 
 package Vista;
 
-import AccesosDatos.AlumnoData;
+import AccesosDatos.alumnoData;
 import Entidades.Alumno;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author deborahhhh
  */
-public class VistaAlumno extends javax.swing.JInternalFrame {
-    private AlumnoData aluData = new AlumnoData();
+public class vistaAlumno extends javax.swing.JInternalFrame {
+    private alumnoData aluData = new alumnoData();
     private Alumno alumActual = null;
     private List<Alumno> alumnos = new ArrayList<>();
 
-    public VistaAlumno() {
+    public vistaAlumno() {
         initComponents();
     }
 
@@ -259,82 +260,51 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
 
     private void JB_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_actualizarActionPerformed
       
-        JB_actualizar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 actualizarAlumno();
-            }
-        });
+        
    
     }//GEN-LAST:event_JB_actualizarActionPerformed
 
     private void jB_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_agregarActionPerformed
         
-        jB_agregar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 agregarAlumno();
-            }
-        });
         
     }//GEN-LAST:event_jB_agregarActionPerformed
 
     private void JB_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_nuevoActionPerformed
         
-        JB_nuevo.addActionListener(e -> nuevoAlumno());
+        nuevoAlumno();
         
     }//GEN-LAST:event_JB_nuevoActionPerformed
 
     private void JB_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_buscarActionPerformed
-      
-        JB_buscar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+
                 buscarAlumnoPorId();
-            }
-        });
+        
     }//GEN-LAST:event_JB_buscarActionPerformed
 
     private void JB_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_eliminarActionPerformed
-        
-        JB_eliminar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+
                 eliminarAlumno();
-            }
-        });
-        
+         
     }//GEN-LAST:event_JB_eliminarActionPerformed
 
     private void jB_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_mostrarActionPerformed
-        
-         jB_mostrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    
                 mostrarAlumnos();
-            }
-        });
+        
     }//GEN-LAST:event_jB_mostrarActionPerformed
 
     private void JB_bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_bajaActionPerformed
-        
-        JB_baja.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+     
                 bajaAlumno();
-            }
-        });
-        
+       
     }//GEN-LAST:event_JB_bajaActionPerformed
 
     private void jB_altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_altaActionPerformed
-        
-        jB_alta.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    
                 altaAlumno();
-            }
-        });
+       
     }//GEN-LAST:event_jB_altaActionPerformed
     
     private void agregarAlumno() {
@@ -342,7 +312,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         int dni = Integer.parseInt(txtDNI.getText());
         String nombre = txtnom.getText();
         String apellido = txtapellido.getText();
-        LocalDate fechaNacimiento = LocalDate.parse(jD_nac.getDateFormatString());
+        LocalDate fechaNacimiento = new java.sql.Date(jD_nac.getDate().getTime()).toLocalDate();
         boolean estado = true;
 
         aluData.guardarAlumno(new Alumno(idAlumno, dni, nombre, apellido, fechaNacimiento, estado));
@@ -350,16 +320,21 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
         limpiarCampos();
     }
     
-    private void buscarAlumnoPorId() {
-        int idAlumno = Integer.parseInt(txtDNI.getText());
-        for (Alumno alumno : alumnos) {
-            if (alumno.getIdAlumno()== idAlumno) {
-            JOptionPane.showMessageDialog(null, "Alumno encontrado: " + alumno.getNombre() + " " + alumno.getApellido());    
-                return;
-            }
+ private void buscarAlumnoPorId() {
+        Integer idAlumno = Integer.parseInt(txtid.getText());
+        alumActual=aluData.buscarAlumnoPorId(idAlumno);
+        if(alumActual !=null){
+            txtnom.setText(alumActual.getNombre());
+            txtDNI.setText(String.valueOf(alumActual.getDni()));
+            txtapellido.setText(alumActual.getApellido());
+            jRadioButton1.setSelected(alumActual.isActivo());
+            LocalDate lc= alumActual.getFechaNacimiento();
+            java.util.Date date=java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jD_nac.setDate(date);
         }
-        JOptionPane.showMessageDialog(null, "Alumno no encontrado");
-    }
+        
+     }
+    
 
     private void nuevoAlumno() {
     // Habilitar los campos de entrada
@@ -379,7 +354,7 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
             if (alumno.getDni() == dni) {
                 alumno.setNombre(txtnom.getText());
                 alumno.setApellido(txtapellido.getText());
-                alumno.setfechaNacimiento(LocalDate.parse(jD_nac.getDateFormatString()));
+                LocalDate fechaNacimiento = new java.sql.Date(jD_nac.getDate().getTime()).toLocalDate();
                 JOptionPane.showMessageDialog(null, "Alumno modificado: " + alumno.getNombre() + " " + alumno.getApellido());
                 limpiarCampos();
                 return;
@@ -425,10 +400,18 @@ public class VistaAlumno extends javax.swing.JInternalFrame {
     
     private void mostrarAlumnos() {
         JOptionPane.showMessageDialog(null, "Lista de Alumnos: ");
+        StringBuilder sb = new StringBuilder("Lista de Alumnos:\n");
         for (Alumno alumno : alumnos) {
-            JOptionPane.showMessageDialog(null, alumno.getIdAlumno() + " - " + alumno.getDni() + " - " + alumno.getNombre() + " - " + alumno.getApellido() + " - " + alumno.getFechaNacimiento() + " - " + (alumno.isActivo() ? "Activo" : "Inactivo"));
+            sb.append(alumno.getIdAlumno()).append(" - ")
+              .append(alumno.getDni()).append(" - ")
+              .append(alumno.getNombre()).append(" - ")
+              .append(alumno.getApellido()).append(" - ")
+              .append(alumno.getFechaNacimiento()).append(" - ")
+              .append(alumno.isActivo() ? "Activo" : "Inactivo").append("\n");
+        }
+        JOptionPane.showMessageDialog(null, sb.toString());
     }
-    }
+      
     
     private void limpiarCampos() {
         txtid.setText("");

@@ -26,7 +26,7 @@ public Conexion miConexion;
         Alumno alumnoDario = new Alumno(456, "Dario", "Godoy", LocalDate.now(), true);
         Alumno alumnoFer = new Alumno (567, "Fernando","Hernandez", LocalDate.now(), true);
         
-        AlumnoData alumnoData = new AlumnoData();
+        alumnoData alumnoData = new alumnoData();
         
         alumnoData.guardarAlumno(alumnoFer);
         alumnoData.guardarAlumno(alumnoAgos);
@@ -88,7 +88,7 @@ public Conexion miConexion;
     }
     
     public static void conectarInscripcion() {
-        AlumnoData alumnoData = new AlumnoData();
+        alumnoData alumnoData = new alumnoData();
         MateriaData materiaData = new MateriaData();
         InscripcionData inscripcionData = new InscripcionData();
         Alumno alumno = alumnoData.buscarAlumnoPorId(1);

@@ -10,12 +10,12 @@ import java.util.logging.Logger;
 
 public class InscripcionData {
     private Connection conn = null;
-    private AlumnoData aluData;
+    private alumnoData aluData;
     private MateriaData matData;
 
     public InscripcionData() {
         this.conn = Conexion.getConexion();
-        this.aluData = new AlumnoData();
+        this.aluData = new alumnoData();
         this.matData = new MateriaData();
     }
     

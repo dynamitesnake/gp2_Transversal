@@ -272,9 +272,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jB_agregar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\54266\Downloads\iconos_netbeans\iconos netbeans\icons8-agregar-administrador-80.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
       <Events>
@@ -293,9 +290,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jB_mostrar">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\54266\Downloads\iconos_netbeans\iconos netbeans\icons8-mostrar-propiedad-64.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Mostrar"/>
       </Properties>
       <Events>
