@@ -100,6 +100,11 @@ public class Escritorio extends javax.swing.JFrame {
         JMconsulta.setText("Consultas");
 
         jMIalumnosPorMateria.setText("Alumnos por Materia");
+        jMIalumnosPorMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIalumnosPorMateriaActionPerformed(evt);
+            }
+        });
         JMconsulta.add(jMIalumnosPorMateria);
 
         jMenuBar1.add(JMconsulta);
@@ -156,6 +161,15 @@ public class Escritorio extends javax.swing.JFrame {
         Escritorio.add(notas);
         
     }//GEN-LAST:event_jMImanipulacionNotasActionPerformed
+
+    private void jMIalumnosPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIalumnosPorMateriaActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        vistaListarInscripciones lista = new vistaListarInscripciones();
+        Escritorio.add(lista);
+        lista.setVisible(true);
+        Escritorio.moveToFront(this);
+    }//GEN-LAST:event_jMIalumnosPorMateriaActionPerformed
 
     /**
      * @param args the command line arguments
