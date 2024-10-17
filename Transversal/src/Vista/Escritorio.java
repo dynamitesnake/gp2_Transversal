@@ -110,6 +110,11 @@ public class Escritorio extends javax.swing.JFrame {
         jMenuBar1.add(JMconsulta);
 
         JMsalir.setText("Salir");
+        JMsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMsalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(JMsalir);
 
         setJMenuBar(jMenuBar1);
@@ -170,6 +175,11 @@ public class Escritorio extends javax.swing.JFrame {
         lista.setVisible(true);
         Escritorio.moveToFront(this);
     }//GEN-LAST:event_jMIalumnosPorMateriaActionPerformed
+
+    private void JMsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMsalirActionPerformed
+        
+         dispose();
+    }//GEN-LAST:event_JMsalirActionPerformed
 
     /**
      * @param args the command line arguments
