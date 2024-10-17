@@ -15,11 +15,11 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia materia) {
-        System.out.println("\nGuardar materia: " + materia.getNombre());
+        System.out.println("\nGuardar materia: " + materia.getNombreMateria());
         String sql = "INSERT INTO materia (nombre, año, estado) VALUES (?, ?, ?)";
          try {
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, materia.getNombre());
+            ps.setString(1, materia.getNombreMateria());
             ps.setInt(2, materia.getAño());
             ps.setBoolean(3, materia.isEstado());
             ps.executeUpdate();
@@ -44,7 +44,7 @@ public class MateriaData {
             if (rs.next()) {
                 materia=new Materia();
                 materia.setIdMateria(idMateria);
-                materia.setNombre(rs.getString("nombre"));
+                materia.setNombreMateria(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(true);
             } else {
@@ -67,7 +67,7 @@ public class MateriaData {
             while (rs.next()) {
                 Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
-                materia.setNombre(rs.getString("nombre"));
+                materia.setNombreMateria(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(rs.getBoolean("estado"));
                 materias.add(materia);
@@ -80,11 +80,11 @@ public class MateriaData {
     }
     
     public void modificarMateria(Materia materia) {
-        System.out.println("\nModificar materia: " + materia.getNombre());
+        System.out.println("\nModificar materia: " + materia.getNombreMateria());
         String sql = "UPDATE materia SET nombre = ? , año = ? WHERE idMateria = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, materia.getNombre());
+            ps.setString(1, materia.getNombreMateria());
             ps.setInt(2, materia.getAño());
             ps.setInt(3, materia.getIdMateria()); 
             int exito = ps.executeUpdate();

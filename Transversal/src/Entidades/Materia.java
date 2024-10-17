@@ -3,33 +3,39 @@ package Entidades;
 
 public class Materia {
     private int idMateria;
-    private String nombre;
+    private String nombreMateria;
     private int año;
     private boolean estado;
 
     public Materia() {
     }
-
-    public Materia(String nombre, int año, boolean estado) {
-        this.nombre = nombre;
+ public Materia(int idMateria, String nombreMateria, int año, boolean estado) {
+        this.idMateria = idMateria;
+        this.nombreMateria = nombreMateria;
+        this.año = año;
+        this.estado = estado;
+    }
+ 
+    public Materia(String nombreMateria, int año, boolean estado) {
+        this.nombreMateria = nombreMateria;
         this.año = año;
         this.estado = estado;
     }
 
-    public Materia(int idMateria, String nombre, int año, boolean estado) {
-        this.idMateria = idMateria;
-        this.nombre = nombre;
-        this.año = año;
-        this.estado = estado;
+   
+
+    public String getNombreMateria() {
+        return nombreMateria;
+    }
+
+    public void setNombreMateria(String nombreMateria) {
+        this.nombreMateria = nombreMateria;
     }
 
     public int getIdMateria() {
         return idMateria;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
 
     public int getAño() {
         return año;
@@ -43,10 +49,7 @@ public class Materia {
         this.idMateria = idMateria;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+    
     public void setAño(int año) {
         this.año = año;
     }
@@ -57,9 +60,9 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia " + getNombre() + "{" +
+        return "Materia " + getNombreMateria() + "{" +
                 "\nidMateria= " + idMateria +
-                ",\nnombre= " + nombre +
+                ",\nnombreMateria= " + nombreMateria +
                 ",\naño= " + año +
                 ",\nestado= " + estado +
                 "}\n";

@@ -88,13 +88,10 @@ public class Alumno {
     @Override
     public String toString() {
         return "Alumno " + getNombre() + "{" +
-                "\nidAlumno= " + idAlumno +
                 ",\ndni= " + dni +
                 ",\napellido= " + apellido + 
-                ",\nnombre= " + nombre +
-                ",\nfechaNacimiento= " + fechaNacimiento +
-                ",\nestado= " + estado +
-                "}\n";
+                ",\nnombre= " + nombre
+                ;
     }
     
 }

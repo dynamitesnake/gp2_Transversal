@@ -63,7 +63,7 @@ public class Inscripcion {
     public String toString() {
         return "Inscripcion " + "{" +
                 "\nAlumno= " + alumno.getNombre() + " " + alumno.getApellido() +
-                ",\nMateria= " + materia.getNombre() + " " + materia.getAño() +
+                ",\nMateria= " + materia.getNombreMateria() + " " + materia.getAño() +
                 ",\nNota= " + nota +
                 "}\n";
     }

@@ -174,7 +174,7 @@ import javax.swing.JOptionPane;
         Integer idMateria = Integer.parseInt(JTFcodigo.getText());
         materActual = materData.buscarMateria(idMateria);
         if (materActual!= null){
-            JTFnombre.setText(materActual.getNombre());
+            JTFnombre.setText(materActual.getNombreMateria());
             JTFaño.setText(String.valueOf(materActual.getAño()));
             JRBestado.setSelected(materActual.isEstado());
         }
@@ -214,7 +214,7 @@ import javax.swing.JOptionPane;
 
         }else{
         materActual.setIdMateria(idMateria);
-        materActual.setNombre(nombre);
+        materActual.setNombreMateria(nombre);
         materActual.setAño(año);
         materData.modificarMateria(materActual);
        

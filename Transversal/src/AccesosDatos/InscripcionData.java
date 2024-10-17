@@ -132,7 +132,7 @@ public class InscripcionData {
             while (rs.next()) {                
                 Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
-                materia.setNombre(rs.getString("nombre"));
+                materia.setNombreMateria(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materias.add(materia);
             }
@@ -154,7 +154,7 @@ public class InscripcionData {
             while (rs.next()) {                
                 Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
-                materia.setNombre(rs.getString("nombre"));
+                materia.setNombreMateria(rs.getString("nombre"));
                 materia.setAño(rs.getInt("año"));
                 materias.add(materia);
             }
