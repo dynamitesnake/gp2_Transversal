@@ -87,10 +87,8 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno " + getNombre() + "{" +
-                ",\ndni= " + dni +
-                ",\napellido= " + apellido + 
-                ",\nnombre= " + nombre
+        return "Alumno " + getNombre() + " " +
+                apellido 
                 ;
     }
     
