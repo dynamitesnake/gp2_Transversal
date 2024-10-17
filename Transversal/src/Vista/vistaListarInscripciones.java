@@ -2,22 +2,33 @@
 package Vista;
 
 import AccesosDatos.InscripcionData;
+import AccesosDatos.MateriaData;
+import AccesosDatos.alumnoData;
 import Entidades.Alumno;
 import Entidades.Inscripcion;
 import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 
 public class vistaListarInscripciones extends javax.swing.JInternalFrame {
-    private InscripcionData incriData = new InscripcionData();
-     private Inscripcion inscriActual = null;
-     private List<Alumno> alumnos = new ArrayList<>();
-     private List<Materia> materias = new ArrayList<>();
+    private InscripcionData inscriData ;
+     private MateriaData mData;
+     private alumnoData aData;
+     private ArrayList<Alumno> listaAlu;
+     private ArrayList<Materia> listaMate;
+     private DefaultTableModel modelo;
 
     
     public vistaListarInscripciones() {
         initComponents();
+        aData = new alumnoData();
+        listaAlu = (ArrayList<Alumno>)aData.listarAlumnos();
+        modelo = new DefaultTableModel();
+        inscriData = new InscripcionData();
+       comboAlumno();
+       armarCabeceraTabla();
     }
 
     
@@ -26,7 +37,7 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jlbSeleccion = new javax.swing.JLabel();
-        jcbListaalumnos = new javax.swing.JComboBox<>();
+        comboListaalumnos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbMostaralumnos = new javax.swing.JTable();
         jlbTitulo = new javax.swing.JLabel();
@@ -34,8 +45,6 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
 
         jlbSeleccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlbSeleccion.setText("Seleccion de alumno:");
-
-        jcbListaalumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jtbMostaralumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,15 +70,8 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jlbSeleccion)
-                        .addGap(62, 62, 62)
-                        .addComponent(jcbListaalumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(11, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -80,6 +82,12 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(87, 87, 87))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jlbSeleccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboListaalumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +96,7 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbSeleccion)
-                    .addComponent(jcbListaalumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboListaalumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -101,11 +109,41 @@ public class vistaListarInscripciones extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<Alumno> comboListaalumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> jcbListaalumnos;
     private javax.swing.JLabel jlbSeleccion;
     private javax.swing.JLabel jlbTitulo;
     private javax.swing.JTable jtbMostaralumnos;
     // End of variables declaration//GEN-END:variables
+
+    private void comboAlumno() {
+        for (Alumno item : listaAlu) {
+            comboListaalumnos.addItem(item);
+        }
+    }
+
+    private void armarCabeceraTabla() {
+        ArrayList<Object> filaCabecera = new ArrayList<>();
+        filaCabecera.add("ID");
+        filaCabecera.add("Nombre");
+        filaCabecera.add("Año");
+        for (Object it: filaCabecera) {
+        modelo.addColumn(it);
+    }
+        jtbMostaralumnos.setModel(modelo);
+    }
+    private void borrarFilasdeTabla () {
+        int indice = modelo.getRowCount() -1;
+        for (int i = indice ; i>=0;i--){
+            modelo.removeRow(i);
+        }
+    }
+private void cargarMateriasInscriptas (){
+        Alumno selec = (Alumno) comboListaalumnos.getSelectedItem();
+       List <Materia> lista = inscriData.obtenerMateriasCursadas(selec.getIdAlumno());
+       for (Materia m : lista){
+           modelo.addRow(new Object [] {m.getIdMateria(),m.getNombreMateria(),m.getAño()});
+    }    
+    }
 }
